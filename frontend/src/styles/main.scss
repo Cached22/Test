@@ -1,0 +1,108 @@
+// Variables for colors, fonts, and common styles
+$primary-color: #2c3e50;
+$secondary-color: #34495e;
+$accent-color: #e74c3c;
+$background-color: #ecf0f1;
+$text-color: #333;
+$font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Mixins for responsive design and common patterns
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin card-style {
+  background: $background-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-stack;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+}
+
+button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Component-specific styles
+#caseComponent,
+#documentComponent,
+#clientComponent,
+#userComponent,
+#invoiceComponent,
+#courtTrackerComponent,
+#workflowComponent,
+#communicationComponent,
+#researchComponent,
+#billingComponent,
+#securityComponent {
+  @include card-style;
+  margin-bottom: 20px;
+}
+
+// Layout styles
+.header {
+  background-color: $secondary-color;
+  padding: 10px 0;
+  .logo {
+    font-size: 24px;
+    color: white;
+    margin-left: 20px;
+  }
+}
+
+.main-content {
+  padding: 20px;
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.flex-row {
+  @include flex-center;
+  flex-direction: row;
+}
+
+.flex-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .header .logo {
+    font-size: 20px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+}
